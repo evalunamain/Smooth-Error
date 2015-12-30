@@ -1,0 +1,85 @@
+form {
+  max-width: 300px;
+  margin: 50px auto;
+}
+
+input.se-input {
+  height: 60px;
+  width: 100%;
+  border: 1px solid #d6d5dc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.se-error-wrapper {
+  position: relative;
+
+  &.has-error {
+    .field-invalid {
+      display: block;
+    }
+  }
+
+  &.show-error {
+    .se-error-tooltip {
+      display: block;
+      z-index: 250;
+    }
+  }
+}
+
+.se-validation-icon {
+  position: absolute;
+  background-size: 100%;
+  display: none;
+  left: 50%;
+  top: 50%;
+  right: 15px;
+  z-index: 1;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.se-field-valid {
+  @extend .se-validation-icon;
+  background-image: url('../img/green-check.png');
+  width: 19px;
+  height: 16px;
+}
+
+.se-field-invalid {
+  @extend .se-validation-icon;
+  background-image: url('../img/red-x.png');
+  width: 16px;
+  height: 17px;
+}
+
+.se-error-tooltip {
+  position: absolute;
+  line-height: 1.56;
+  display: none;
+  right: -5px;
+  border-radius: 4px;
+  width: 280px;
+  padding: 13px 12px 13px 17px;
+  background-color: #f9849b;
+  color: white;
+  text-align: left;
+  bottom: 50px;
+  font-size: 14px;
+  z-index: 10;
+  max-width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 17px;
+    border-top: 11px solid #f9849b;
+    border-right: 11px solid transparent;
+    border-left: 11px solid transparent;
+    display: block;
+  }
+}
