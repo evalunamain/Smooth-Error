@@ -1,20 +1,20 @@
 {
-    "name": "SmoothError",
-    "version": "0.0.1",
-    "authors": [
-      "Eva Main <evalunamain@gmail.com>"
-    ],
-    "main": "dist/smooth-error.js",
-    "ignore": [
-        "src",
-        ".gitignore",
-        ".jshintrc",
-        "bower.json",
-        "gruntfile.js",
-        "package.json",
-        "README.md"
-    ],
-    "dependencies": {
-        "jquery": ">=1.10.2"
-    },
+  "name": "SmoothError",
+  "version": "0.0.1",
+  "authors": [
+    "Eva Main <evalunamain@gmail.com>"
+  ],
+  "main": "dist/smooth-error.js",
+  "ignore": [
+      "src",
+      ".gitignore",
+      ".jshintrc",
+      "bower.json",
+      "gruntfile.js",
+      "package.json",
+      "README.md"
+  ],
+  "dependencies": {
+      "jquery": ">=1.10.2"
+  }
 }
