@@ -4,7 +4,7 @@
   "authors": [
     "Eva Main <evalunamain@gmail.com>"
   ],
-  "main": "dist/smooth-error.js",
+  "main": "dist/js/smooth-error.js",
   "ignore": [
       "src",
       ".gitignore",
