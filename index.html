@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Demo Error</title>
+    <link rel="stylesheet" href="./css/smooth-error.css" type="text/css" charset="utf-8">
+  </head>
+  <body>
+    <form>
+      <input type="text" id="1"/>
+    </form>
+
+    <form action="">
+      <input type="text" id="2"/>
+    </form>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="./js/smooth-error.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input').smoothError();
+        setTimeout(function () {
+          $('input#1').trigger('se-error', 'test');
+          $('input#2').trigger('se-error', {error: '<h1>test</h1>', htmlSafe: true});
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
