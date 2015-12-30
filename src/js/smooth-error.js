@@ -62,7 +62,7 @@
     },
 
     addError: function (error, htmlSafe) {
-      let errorField = this.$el.prev().find(`${ this.options.errorDivClass }`);
+      let errorField = this.$el.prev().find(`.${ this.options.errorDivClass }`);
 
       if (this.options.html || htmlSafe) {
         errorField.html(error);
@@ -70,7 +70,7 @@
         errorField.text(error);
       }
 
-      this.$el.closest(`${ this.options.wrapperClass }`).addClass('has-error');
+      this.$el.closest(`.${ this.options.wrapperClass }`).addClass('has-error');
     }
   });
 
