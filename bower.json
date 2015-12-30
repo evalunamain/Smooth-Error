@@ -4,13 +4,10 @@
     "authors": [
       "Eva Main <evalunamain@gmail.com>"
     ],
-    "main": "dist/your-awesome-js-module.js",
+    "main": "dist/smooth-error.js",
     "ignore": [
-        "source",
-        "spec",
-        ".bowerrc",
+        "src",
         ".gitignore",
-        ".jshintignore",
         ".jshintrc",
         "bower.json",
         "gruntfile.js",
