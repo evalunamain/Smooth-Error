@@ -4,17 +4,17 @@
   "authors": [
     "Eva Main <evalunamain@gmail.com>"
   ],
-  "main": "dist/js/smooth-error.js",
-  "ignore": [
-      "src",
-      ".gitignore",
-      ".jshintrc",
-      "bower.json",
-      "gruntfile.js",
-      "package.json",
-      "README.md"
-  ],
   "dependencies": {
-      "jquery": ">=1.10.2"
-  }
+    "jquery": ">=1.10.2"
+  },
+  "main": ["dist/js/smooth-error.js"],
+  "ignore": [
+    "src",
+    ".gitignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md"
+  ]
 }
