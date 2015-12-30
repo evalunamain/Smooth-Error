@@ -7,14 +7,17 @@
   "dependencies": {
     "jquery": ">=1.10.2"
   },
-  "main": ["dist/js/smooth-error.js"],
+  "main": [
+    "dist/js/smooth-error.js"
+  ],
   "ignore": [
     "src",
     ".gitignore",
     ".jshintrc",
+    ".babelrc",
     "bower.json",
-    "gruntfile.js",
+    "gulpfile.js",
     "package.json",
-    "README.md"
+    "index.html"
   ]
 }
