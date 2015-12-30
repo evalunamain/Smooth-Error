@@ -4,7 +4,7 @@ var $ = require('gulp-load-plugins')();
 var sass = require('gulp-sass');
 
 gulp.task("js", function () {
-  return gulp.src("src//**/*.js")
+  return gulp.src("src/**/*.js")
     .pipe(babel())
     .pipe(gulp.dest("./dist"));
 });

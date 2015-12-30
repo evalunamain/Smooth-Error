@@ -2,7 +2,7 @@
   "use strict";
 
   var seTest = {
-    init: () => {
+    init: function () {
       $('input').smoothError();
       this.initEvents();
     },

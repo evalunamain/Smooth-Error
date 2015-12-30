@@ -1,3 +1,7 @@
+'use strict';
+
+function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+
 ;(function ($, window, document) {
   "use strict";
 
@@ -14,53 +18,55 @@
       inputClass: 'se-input' //css class used to style input field
     },
 
-    init: function () {
+    init: function init() {
       this.initErrorElement();
       this.initEvents();
     },
 
-    initErrorElement: function () {
+    initErrorElement: function initErrorElement() {
       this.$el.addClass(this.options.inputClass);
-      let inputWrapper = $('<div class="se-error-wrapper">');
+      var inputWrapper = $('<div class="se-error-wrapper">');
       this.$el.wrap(inputWrapper);
 
-      let stateWrapper = $('<span>');
+      var stateWrapper = $('<span>');
       stateWrapper.prepend($('<span class="se-field-invalid">')).prepend($('<span class="se-error-tooltip">'));
 
       this.$el.parent().prepend(stateWrapper);
     },
 
-    initEvents: function () {
-      this.$eventEl.on('focus', '.has-error', e => {
-        this.showErrorMessage(e);
+    initEvents: function initEvents() {
+      var _this = this;
+
+      this.$eventEl.on('focus', '.has-error', function (e) {
+        _this.showErrorMessage(e);
       });
 
-      this.$eventEl.on('keydown', '.has-error', e => {
-        this.hideErrorMessage(e);
+      this.$eventEl.on('keydown', '.has-error', function (e) {
+        _this.hideErrorMessage(e);
       });
 
-      this.$el.on('se-error', (e, ...args) => {
-        if (typeof args[0] === 'string') {
-          this.addError(args[0]);
-        } else if (typeof args[0] === 'object') {
-          let error = args[0].error,
-              htmlSafe = args[0].htmlSafe;
-          this.addError(error, htmlSafe);
+      this.$el.on('se-error', function (e) {
+        if (typeof (arguments.length <= 1 ? undefined : arguments[1]) === 'string') {
+          _this.addError(arguments.length <= 1 ? undefined : arguments[1]);
+        } else if (_typeof(arguments.length <= 1 ? undefined : arguments[1]) === 'object') {
+          var error = (arguments.length <= 1 ? undefined : arguments[1]).error,
+              htmlSafe = (arguments.length <= 1 ? undefined : arguments[1]).htmlSafe;
+          _this.addError(error, htmlSafe);
         }
       });
     },
 
-    hideErrorMessage: function (e) {
+    hideErrorMessage: function hideErrorMessage(e) {
       $(e.currentTarget).removeClass('has-error show-error');
     },
 
-    showErrorMessage: function (e) {
+    showErrorMessage: function showErrorMessage(e) {
       $(e.currentTarget).addClass('show-error');
     },
 
-    addError: function (error, htmlSafe) {
+    addError: function addError(error, htmlSafe) {
       console.log(error.htmlSafe);
-      let errorField = this.$el.prev().find('.se-error-tooltip');
+      var errorField = this.$el.prev().find('.se-error-tooltip');
 
       if (this.options.html || htmlSafe) {
         errorField.html(error);
@@ -79,10 +85,10 @@
   };
 
   $.fn.smoothError = function (options) {
-    let attr = 'smooth-error';
+    var attr = 'smooth-error';
 
     this.each(function () {
-      let instance = $.data(this, attr);
+      var instance = $.data(this, attr);
       if (!instance) {
         instance = new SmoothError(this, options);
         $.data(this, attr, instance);
