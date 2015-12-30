@@ -1,0 +1,13 @@
+{
+  "name": "smooth-error",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "author": "Eva Main <evalunamain@gmail.com>",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7"
+  }
+}
