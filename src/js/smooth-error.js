@@ -12,7 +12,8 @@
     defaults: {
       html: false, //expect custom error msgs to be passed as plain text
       inputClass: 'se-input', //css class used to style input field
-      wrapperClass: 'se-error-wrapper' //css class used to style error wrapper
+      wrapperClass: 'se-error-wrapper', //css class used to style error wrapper
+      errorDivClass: 'se-error-tooltip' //css class used to style the error message
     },
 
     init: function () {
@@ -27,7 +28,7 @@
 
       let stateWrapper = $('<span>');
       stateWrapper.prepend($('<span class="se-field-invalid">'))
-        .prepend($('<span class="se-error-tooltip">'));
+        .prepend($(`<span class="${ this.options.errorDivClass }">`));
 
       this.$el.parent().prepend(stateWrapper);
     },
@@ -61,7 +62,7 @@
     },
 
     addError: function (error, htmlSafe) {
-      let errorField = this.$el.prev().find('.se-error-tooltip');
+      let errorField = this.$el.prev().find(`${ this.options.errorDivClass }`);
 
       if (this.options.html || htmlSafe) {
         errorField.html(error);

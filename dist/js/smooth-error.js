@@ -16,7 +16,8 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     defaults: {
       html: false, //expect custom error msgs to be passed as plain text
       inputClass: 'se-input', //css class used to style input field
-      wrapperClass: 'se-error-wrapper' //css class used to style error wrapper
+      wrapperClass: 'se-error-wrapper', //css class used to style error wrapper
+      errorDivClass: 'se-error-tooltip' //css class used to style the error message
     },
 
     init: function init() {
@@ -30,7 +31,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
       this.$el.wrap(inputWrapper);
 
       var stateWrapper = $('<span>');
-      stateWrapper.prepend($('<span class="se-field-invalid">')).prepend($('<span class="se-error-tooltip">'));
+      stateWrapper.prepend($('<span class="se-field-invalid">')).prepend($('<span class="' + this.options.errorDivClass + '">'));
 
       this.$el.parent().prepend(stateWrapper);
     },
@@ -66,7 +67,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     },
 
     addError: function addError(error, htmlSafe) {
-      var errorField = this.$el.prev().find('.se-error-tooltip');
+      var errorField = this.$el.prev().find('' + this.options.errorDivClass);
 
       if (this.options.html || htmlSafe) {
         errorField.html(error);
