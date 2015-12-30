@@ -1,30 +1,54 @@
-form {
-  max-width: 300px;
-  margin: 50px auto;
+@import "meyer-reset";
+@import "normalize";
+@import "mixins";
+
+html, body {
+  font-family: 'Lato', sans-serif;
+}
+
+.se-test-main {
+  @include flex;
+  justify-content: center;
+}
+
+.se-test-form {
+  flex: 0 0 33%;
+  margin: 50px 25px;
+}
+
+.se-test-form-1, .se-test-form-2 {
+  @extend .se-test-form;
+}
+
+.se-test-link {
+  text-decoration: underline;
+}
+
+.se-test-button {
+  height: 60px;
+  width: 100%;
+  background-color: #33435a;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  border-radius: 4px;
+
+  &:focus, &:active {
+    outline: none;
+  }
 }
 
 input.se-input {
   height: 60px;
   width: 100%;
+  padding: 10px 20px;
   border: 1px solid #d6d5dc;
   border-radius: 4px;
   box-sizing: border-box;
-}
 
-.se-error-wrapper {
-  position: relative;
-
-  &.has-error {
-    .field-invalid {
-      display: block;
-    }
-  }
-
-  &.show-error {
-    .se-error-tooltip {
-      display: block;
-      z-index: 250;
-    }
+  &:focus {
+    outline: none;
   }
 }
 
@@ -32,21 +56,13 @@ input.se-input {
   position: absolute;
   background-size: 100%;
   display: none;
-  left: 50%;
   top: 50%;
   right: 15px;
   z-index: 1;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.se-field-valid {
-  @extend .se-validation-icon;
-  background-image: url('../img/green-check.png');
-  width: 19px;
-  height: 16px;
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .se-field-invalid {
@@ -81,5 +97,23 @@ input.se-input {
     border-right: 11px solid transparent;
     border-left: 11px solid transparent;
     display: block;
+  }
+}
+
+.se-error-wrapper {
+  position: relative;
+  margin-bottom: 25px;
+
+  &.has-error {
+    .se-field-invalid {
+      display: block;
+    }
+  }
+
+  &.show-error {
+    .se-error-tooltip {
+      display: block;
+      z-index: 250;
+    }
   }
 }

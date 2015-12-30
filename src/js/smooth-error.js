@@ -5,7 +5,6 @@
     this.$el = $(el);
     this.$eventEl = this.$el.parent(); //we attach event listeners to this el
     this.options = $.extend({}, this.defaults, options);
-    console.log(this.$eventEl);
     this.init();
   }
 
@@ -26,8 +25,7 @@
       this.$el.wrap(inputWrapper);
 
       let stateWrapper = $('<span>');
-      stateWrapper.prepend($('<span class="se-svalidation-icon se-field-valid">'))
-        .prepend($('<span class="se-validation-icon se-field-invalid">'))
+      stateWrapper.prepend($('<span class="se-field-invalid">'))
         .prepend($('<span class="se-error-tooltip">'));
 
       this.$el.parent().prepend(stateWrapper);
@@ -35,12 +33,10 @@
 
     initEvents: function () {
       this.$eventEl.on('focus', '.has-error', (e) => {
-        console.log('focus', e);
         this.showErrorMessage(e);
       });
 
       this.$eventEl.on('keydown', '.has-error', (e) => {
-        console.log('keydown', e);
         this.hideErrorMessage(e);
       });
 
