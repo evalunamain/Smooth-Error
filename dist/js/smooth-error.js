@@ -65,7 +65,6 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     },
 
     addError: function addError(error, htmlSafe) {
-      console.log(error.htmlSafe);
       var errorField = this.$el.prev().find('.se-error-tooltip');
 
       if (this.options.html || htmlSafe) {
@@ -77,12 +76,6 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
       this.$el.closest('.se-error-wrapper').addClass('has-error');
     }
   });
-
-  $.fn.smoothError = function (options) {
-    return this.each(function () {
-      new SmoothError(this, options);
-    });
-  };
 
   $.fn.smoothError = function (options) {
     var attr = 'smooth-error';

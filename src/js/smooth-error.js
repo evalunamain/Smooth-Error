@@ -60,7 +60,6 @@
     },
 
     addError: function (error, htmlSafe) {
-      console.log(error. htmlSafe);
       let errorField = this.$el.prev().find('.se-error-tooltip');
 
       if (this.options.html || htmlSafe) {
@@ -72,12 +71,6 @@
       this.$el.closest('.se-error-wrapper').addClass('has-error');
     }
   });
-
-  $.fn.smoothError = function (options) {
-    return this.each(function () {
-      new SmoothError(this, options);
-    });
-  };
 
   $.fn.smoothError = function (options) {
     let attr = 'smooth-error';
