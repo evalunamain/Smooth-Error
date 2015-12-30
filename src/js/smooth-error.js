@@ -11,7 +11,8 @@
   $.extend(SmoothError.prototype, {
     defaults: {
       html: false, //expect custom error msgs to be passed as plain text
-      inputClass: 'se-input' //css class used to style input field
+      inputClass: 'se-input', //css class used to style input field
+      wrapperClass: 'se-error-wrapper' //css class used to style error wrapper
     },
 
     init: function () {
@@ -21,7 +22,7 @@
 
     initErrorElement: function () {
       this.$el.addClass(this.options.inputClass);
-      let inputWrapper = $('<div class="se-error-wrapper">');
+      let inputWrapper = $(`<div class="${ this.options.wrapperClass }">`);
       this.$el.wrap(inputWrapper);
 
       let stateWrapper = $('<span>');
@@ -68,7 +69,7 @@
         errorField.text(error);
       }
 
-      this.$el.closest('.se-error-wrapper').addClass('has-error');
+      this.$el.closest(`${ this.options.wrapperClass }`).addClass('has-error');
     }
   });
 

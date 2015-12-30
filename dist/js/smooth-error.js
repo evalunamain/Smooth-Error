@@ -15,7 +15,8 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
   $.extend(SmoothError.prototype, {
     defaults: {
       html: false, //expect custom error msgs to be passed as plain text
-      inputClass: 'se-input' //css class used to style input field
+      inputClass: 'se-input', //css class used to style input field
+      wrapperClass: 'se-error-wrapper' //css class used to style error wrapper
     },
 
     init: function init() {
@@ -25,7 +26,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
 
     initErrorElement: function initErrorElement() {
       this.$el.addClass(this.options.inputClass);
-      var inputWrapper = $('<div class="se-error-wrapper">');
+      var inputWrapper = $('<div class="' + this.options.wrapperClass + '">');
       this.$el.wrap(inputWrapper);
 
       var stateWrapper = $('<span>');
@@ -73,7 +74,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
         errorField.text(error);
       }
 
-      this.$el.closest('.se-error-wrapper').addClass('has-error');
+      this.$el.closest('' + this.options.wrapperClass).addClass('has-error');
     }
   });
 
